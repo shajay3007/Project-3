@@ -42,13 +42,6 @@ steps:
     publishLocation: 'Container'
 
 
-- task: AzureCLI@2
-  inputs:
-    azureSubscription: 'Azure-AzureDevOps-SVC'
-    scriptType: 'bash'
-    scriptLocation: 'inlineScript'
-    inlineScript: 'az storage blob upload-batch --account-name storageaccountbatch1992 --destination batch19cont-1 --source $(Build.ArtifactStagingDirectory) --pattern **.war'
-
 - task: S3Upload@1
   inputs:
     awsCredentials: 'AWS-Azure-SVC'
